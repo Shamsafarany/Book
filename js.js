@@ -47,23 +47,41 @@ function displayBooks(){
             const pagesTd = document.createElement("td");
             pagesTd.innerHTML = library[i].pages;
             tr.appendChild(pagesTd);
+            const readTitle = document.createElement("td");
+            readTitle.innerHTML = library[i].read ? "Yes" : "No";
+            tr.appendChild(readTitle);
             const readTd = document.createElement("td");
-            readTd.innerHTML = library[i].read;
+            const readBtn = document.createElement("button");
+            readBtn.classList.add("readButton");
+            readBtn.innerHTML = "Read";
+            readBtn.addEventListener("click", () => {
+                library[i].isRead();
+                readTitle.innerHTML = library[i].read ? "Yes" : "No";
+            });
+
+            readTd.appendChild(readBtn);
             tr.appendChild(readTd);
-            const removeTr = document.createElement("button");
-            removeTr.classList.add("removeButton");
-            removeTr.innerHTML = "Remove Book";
-            removeTr.addEventListener("click", () => {
+            const removeTd = document.createElement("td");
+            const removeBtn = document.createElement("button");
+            removeBtn.classList.add("removeButton");
+            removeBtn.innerHTML = "Remove Book";
+            removeBtn.addEventListener("click", () => {
                 library.splice(i, 1);
-                tr.remove("tr");
-            })
-            tr.appendChild(removeTr); 
+                tr.remove();
+            });
+            removeTd.appendChild(removeBtn);
+            tr.appendChild(removeTd); 
             tbody.appendChild(tr);
             console.log("appended");
         }
         count = library.length;
     }
     
+}
+
+//read prototype
+Book.prototype.isRead = function(){
+    this.read = !this.read;
 }
 
 //get elements

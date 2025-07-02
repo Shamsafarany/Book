@@ -133,3 +133,10 @@ td{
     margin: 10px;
     margin-left: 60px;
 }
+
+.readButton{
+    background-color: rgb(17, 0, 255);
+    padding: 10px;
+    margin: 10px;
+    margin-left: 15px;
+}
