@@ -45,6 +45,11 @@ button{
 .sidebar{
     background-color: white;
     grid-row: 2/3;
+    display: none;    
+}
+
+.show{
+    display: block;
 }
 
 h2{
@@ -79,4 +84,52 @@ label{
 #add-book{
     margin: 10px;
     border: none;
+}
+
+.main h1{
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+}
+
+table{
+  border: solid black;
+  padding: 10px;
+  width: 100%;
+  font-size: 20px;
+  border-collapse: collapse;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.58);
+}
+
+th{
+    color: white;
+    text-decoration: underline;
+    border: solid purple;
+    padding: 20px;
+    letter-spacing: 2px;
+    background-color: #9741ed;
+
+}
+
+table.show{
+    display: table;
+}
+tr{
+    border: solid purple;
+
+}
+td{
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    border: solid purple;
+}
+
+.removeButton{
+    background-color: red;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 60px;
 }

@@ -11,13 +11,13 @@
     <div class="header">
         <h1 class="title">BOOK LOG</h1>
         <ul>
-            <li><button>Add Book</button></li>
-            <li><button>Display</button></li>
+            <li><button id="add">Add Book</button></li>
+            <li><button id="display">Display</button></li>
         </ul>
     </div>
     <div class="sidebar">
         <h2>Add New Book</h2>
-        <form class="add-new">
+        <form autocomplete="off">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title">
             <label for="author">Author:</label>
@@ -27,12 +27,29 @@
             <label for="read">Read: </label>
             <div class="choices">
                 <label for="yes">Yes</label>
-                <input type="radio" name="choice" id="yes">
+                <input type="radio" name="choice" id="yes" value = "yes">
                 <label for="no">No</label>
-                <input type="radio" name="choice" id="no">
+                <input type="radio" name="choice" id="no" value="no">
             </div>
             <button type="submit" id="add-book">Add</button>
         </form>
+    </div>
+    <div class="main">
+        <h1>My Books</h1>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read</th>
+                    <th>Remove</th>
+                </tr>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
