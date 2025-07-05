@@ -1,19 +1,23 @@
 const library = [];
+//book class
+class Book{
+    //constructor
+    constructor(id, title, author, pages, read) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    //methods
+    info(){
+        return `${this.title} | ${this.author} | ${this.pages} | ${this.read}`;
+    }
+    isRead(){
+        this.read = !this.read;
+    }
 
-//constructor
-function Book(id, title, author,pages, read) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
 }
-
-//add function to prototype
-Book.prototype.info = function(){
-    return `${this.title} | ${this.author} | ${this.pages} | ${this.read}`;
-}
-
 function addBookToLibrary(title, author, pages, read) {
     const id = generateId();
     const b = new Book(id, title, author, pages, read);
@@ -25,9 +29,11 @@ function generateId(){
 }
 
 let count = 0;
+
 function displayBooks(){
     if(library.length === 0) {
         console.log("No books added!");
+        table.classList.remove("show");
         container.innerHTML = "No books added!";
         container.style.padding = "10px";
         container.style.fontSize = "20px";
@@ -37,6 +43,7 @@ function displayBooks(){
         table.classList.add("show");
         container.appendChild(table);
         for(let i = count; i < library.length; i++) {
+            const book = library[i];
             const tr = document.createElement("tr");
             const titleTd= document.createElement("td");
             titleTd.innerHTML = library[i].title;
@@ -55,8 +62,8 @@ function displayBooks(){
             readBtn.classList.add("readButton");
             readBtn.innerHTML = "Read";
             readBtn.addEventListener("click", () => {
-                library[i].isRead();
-                readTitle.innerHTML = library[i].read ? "Yes" : "No";
+                book.isRead();
+                readTitle.innerHTML = book.read ? "Yes" : "No";
             });
 
             readTd.appendChild(readBtn);
@@ -78,12 +85,6 @@ function displayBooks(){
     }
     
 }
-
-//read prototype
-Book.prototype.isRead = function(){
-    this.read = !this.read;
-}
-
 //get elements
 const add = document.querySelector("#add");
 const display = document.querySelector("#display");
